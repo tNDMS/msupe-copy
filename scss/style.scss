@@ -87,7 +87,6 @@ body._lock {
 		width: 16rem;
 	}
 
-
 	.search {
 		&__container {
 			border: 1px solid #fff;
@@ -133,6 +132,7 @@ body._lock {
 }
 
 /*................................................*/
+
 .icon-menu {
 	display: none;
 }
@@ -164,7 +164,6 @@ body._lock {
 	&__item a {
 		cursor: pointer;
 	}
-
 }
 
 .admissions {
@@ -291,7 +290,6 @@ body._lock {
 
 .cards {
 	margin: 15rem 0;
-
 }
 
 .block-cards {
@@ -331,6 +329,7 @@ body._lock {
 }
 
 .contacts {
+	margin-bottom: 2rem;
 	height: 46.5rem;
 	width: 100%;
 	background-color: #c6c6c6;
@@ -367,8 +366,6 @@ body._lock {
 		font-size: 18px;
 		font-weight: 500;
 	}
-
-
 }
 .bc-item {
 	margin-bottom: 1rem;
@@ -417,6 +414,7 @@ body._lock {
 }
 
 .footer {
+	margin-top: 2rem;
 	background-color: #303030;
 	height: 17.5rem;
 	width: 100%;
@@ -609,16 +607,84 @@ body._lock {
 }
 
 @media (max-width: 499.98px) {
+	.container {
+		padding: 0;
+	}
+	.menu__icon {
+		z-index: 5;
+		display: block;
+		position: relative;
+		width: 40px;
+		height: 28px;
+		cursor: pointer;
+	}
+	.menu__icon span,
+	.menu__icon::before,
+	.menu__icon::after {
+		left: 0;
+		position: absolute;
+		height: 10%;
+		width: 100%;
+		transition: all 0.3s ease 0s;
+		background-color: #fff;
+	}
+	.menu__icon::before,
+	.menu__icon::after {
+		content: "";
+	}
+	.menu__icon::before {
+		top: 0;
+	}
+
+	.menu__icon::after {
+		bottom: 0;
+	}
+
+	.menu__icon span {
+		top: 50%;
+		transform: scale(1) translate(0px, -50%);
+	}
+
+
+	.menu__icon._active span{
+		transform: scale(0) translate(0px, -50%)
+	}
+
+	.menu__icon._active::before {
+		top: 48%;
+		transform: rotate(-45deg) translate(0px, -50%);
+	}
+
+	.menu__icon._active::after {
+		bottom: 50%;
+		transform: rotate(45deg) translate(0px, 50%);
+
+	}
+
+	/*----------------------------------*/
+
 	.top {
-		margin: 2.5rem 0 0 0;
-		flex-direction: column-reverse;
-		align-items: start;
+		margin: 2rem 0 0 1rem;
+		flex-direction: row;
+		align-items: center;
 		&__logo {
-			margin: 1rem -3rem 0 -2rem;
+			margin: 0;
+			display: none;
 		}
 	}
 	.menu {
-		margin: 0 0 5rem -1rem;
+		margin: 0;
+
+		&__body {
+			position: absolute;
+			top: 110%;
+			left: -100%;
+			transition: left 1s ease 0s;
+		}
+		&__body._active {
+			top: 110%;
+			left: 0%;
+		}
 		&__list {
 			width: 100%;
 			gap: 2rem;
@@ -638,15 +704,19 @@ body._lock {
 			text-wrap: nowrap;
 			white-space: nowrap;
 		}
-		&__link a{
+		&__link a {
 			width: 100%;
 			text-wrap: nowrap;
 			white-space: nowrap;
 		}
 	}
 	.admissions {
+		&__container {
+			padding: 0;
+		}
 		&__body {
 			h1 {
+				margin: 45rem 0rem 1rem 0rem;
 				font-size: 4.8rem;
 			}
 		}
@@ -660,10 +730,14 @@ body._lock {
 		background-size: contain;
 	}
 	.welcome__text {
-		margin-top: -25rem;
+		margin-top: -20rem;
 	}
 	.body-contacts {
+		&__header {
+			margin: 0rem 0rem 3rem 1rem;
+		}
 		&__block {
+			padding: 0rem 2rem;
 			margin-left: 0;
 		}
 	}
